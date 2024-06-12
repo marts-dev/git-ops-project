@@ -10,7 +10,7 @@ from fastai.callback.wandb import WandbCallback
 
 import params
 from utils import get_predictions, create_iou_table, MIOU, BackgroundIOU, \
-                  RoadIOU, TrafficLightIOU, TrafficSignIOU, PersonIOU, VehicleIOU, BicycleIOU, t_or_f
+                RoadIOU, TrafficLightIOU, TrafficSignIOU, PersonIOU, VehicleIOU, BicycleIOU, t_or_f
 # defaults
 default_config = SimpleNamespace(
     framework="fastai",
