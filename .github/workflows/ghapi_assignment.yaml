@@ -1,0 +1,39 @@
+name: GhAPI Assignment
+run-name: GhAPI Assignment
+on: issue_comment
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+env:
+  MAGIC_COMMENT: "/bug"
+
+jobs:
+  see-comment:
+    # this filters for only comments made on a pull request
+    if: (github.event.issue.pull_request != null)
+    runs-on: ubuntu-latest
+    steps:
+    - name: filter for magic comment
+      id: filter
+      if: contains(github.event.comment.body, env.MAGIC_COMMENT)
+      run: echo "magic comment detected"
+  create-comment:
+    runs-on: ubuntu-latest
+    steps:        
+
+    - name: Get repo contents
+      uses: actions/checkout@v4
+
+    - name: install dependencies
+      run: pip install ghapi wandb
+
+    - name: Create comment and tag as bug
+      run: python ./client/mark_bug.py
+      env:
+        NUMBER: ${{ github.event.issue.number }}
+        REPO: ${{ github.repository }}
+    needs: see-comment
+
