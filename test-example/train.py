@@ -10,7 +10,7 @@ from fastai.callback.wandb import WandbCallback
 
 import params
 from utils import get_predictions, create_iou_table, MIOU, BackgroundIOU, \
-                  RoadIOU, TrafficLightIOU, TrafficSignIOU, PersonIOU, VehicleIOU, BicycleIOU, t_or_f
+                RoadIOU, TrafficLightIOU, TrafficSignIOU, PersonIOU, VehicleIOU, BicycleIOU, t_or_f
 # defaults
 default_config = SimpleNamespace(
     framework="fastai",
@@ -18,7 +18,7 @@ default_config = SimpleNamespace(
     batch_size=8, #8 keep small in Colab to be manageable
     augment=True, # use data augmentation
     epochs=10, # for brevity, increase for better results :)
-    lr=2e-3,
+    lr=2e-4,
     pretrained=True,  # whether to use pretrained encoder,
     mixed_precision=True, # use automatic mixed precision
     arch="resnet18",

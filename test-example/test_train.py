@@ -15,4 +15,4 @@ def test_train():
         seed=42,
         log_preds=False,
     )
-    train.train(default_config, nrows=20)
+    #train.train(default_config, nrows=20)

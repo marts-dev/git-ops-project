@@ -23,7 +23,7 @@ jobs:
         with:
           environment-file: test-example/conda-environment.yaml
           environment-name: course
-          cache-env: true
+          cache-environment: true
           cache-downloads: true
           
       - run: |
