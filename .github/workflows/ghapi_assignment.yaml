@@ -34,6 +34,7 @@ jobs:
       run: python ./client/mark_bug.py
       env:
         NUMBER: ${{ github.event.issue.number }}
+        GITHUB_TOKEN: ${{ github.token }}
         REPO: ${{ github.repository }}
     needs: see-comment
 
