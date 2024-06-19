@@ -19,7 +19,7 @@ jobs:
       uses: actions/checkout@v4
 
     - name: install dependencies
-      run: pip install ghapi wandb
+      run: pip install ghapi wandb requests
 
     - name: Parse value from the command
       id: get-runid-value
