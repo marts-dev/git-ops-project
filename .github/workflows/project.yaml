@@ -1,5 +1,5 @@
 name: Project Assignment
-run-name: 
+run-name: Project Assignment
 on:
   issue_comment:
     types: [created, edited]
@@ -19,7 +19,7 @@ jobs:
       uses: actions/checkout@v4
 
     - name: install dependencies
-      run: pip install ghapi wandb requests
+      run: pip install ghapi wandb requests wandb[workspaces]
 
     - name: Parse value from the command
       id: get-runid-value
