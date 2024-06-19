@@ -3,7 +3,7 @@ import wandb.apis.reports as wr
 
 assert os.getenv('WANDB_API_KEY'), 'You must set the WANDB_API_KEY environment variable'
 
-def get_baseline_run(entity='hamelsmu', project='my-report-project', tag='baseline'):
+def get_baseline_run(entity='arrogantemartin', project='cicd-quickstart', tag='baseline'):
     "Get the baseline run from the project using tags"
 
     api = wandb.Api()
@@ -12,10 +12,10 @@ def get_baseline_run(entity='hamelsmu', project='my-report-project', tag='baseli
     return runs[0]
 
 
-def compare_runs(entity='hamelsmu',
-                 project='cicd_demo',
-                 tag='baseline',
-                 run_id=None):
+def compare_runs(entity='arrogantemartin',
+                project='cicd-quickstart',
+                tag='baseline',
+                run_id=None):
     "Compare the current run to the baseline run."
 
     # Allow you to override the args with env variables
@@ -27,8 +27,8 @@ def compare_runs(entity='hamelsmu',
 
     baseline = get_baseline_run(entity=entity, project=project, tag=tag)
     report = wr.Report(entity=entity, project=project,
-                       title='Compare Runs',
-                       description=f"A comparison of runs, the baseline run name is {baseline.name}") 
+                    title='Compare Runs',
+                    description=f"A comparison of runs, the baseline run name is {baseline.name}") 
 
     pg = wr.PanelGrid(
         runsets=[wr.Runset(entity, project, "Run Comparison").set_filters_with_python_expr(f"ID in ['{run_id}', '{baseline.id}']")],
