@@ -55,3 +55,4 @@ jobs:
       env:
         REPORT_URL: "${{ steps.wandb-report.outputs.REPORT_URL }}"
         PR_NUMBER: "${{ github.event.issue.number }}"
+        GITHUB_TOKEN: ${{ github.token }}
