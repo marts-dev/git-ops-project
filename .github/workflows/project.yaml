@@ -1,5 +1,5 @@
 name: Project Assignment
-run-name: Runcomparison triggered by ${{ github.triggering_actor }}
+run-name: Run comparison triggered by ${{ github.triggering_actor }}
 on:
   issue_comment:
     types: [created, edited]
@@ -19,7 +19,7 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Install dependencies
-      run: pip install ghapi wandb
+      run: pip install ghapi wandb wandb-workspaces
 
     - name: Parse value from the command
       id: get-runid-value
