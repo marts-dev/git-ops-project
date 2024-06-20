@@ -1,5 +1,5 @@
 import os, wandb
-import wandb.apis.reports as wr
+import wandb_workspaces.reports.v1 as wr
 
 assert os.getenv('WANDB_API_KEY'), 'You must set the WANDB_API_KEY environment variable'
 
